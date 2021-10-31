@@ -11,7 +11,9 @@
         android:theme="@style/Theme.PomRom">
         <activity
             android:name=".scenes.BaseActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".scenes.SigninActivity"
             android:exported="true"

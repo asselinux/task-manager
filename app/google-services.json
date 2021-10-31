@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146616813034",
+    "project_id": "rompom-43a9e",
+    "storage_bucket": "rompom-43a9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146616813034:android:ef4344490a339252c09e93",
+        "android_client_info": {
+          "package_name": "ru.asselinux.pomrom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146616813034-6c5m00rul8guifu2vvqpkm6ai3e8s3rc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUs1Vjaz-Lg_db8qa8cAx-P82rchwyXZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146616813034-6c5m00rul8guifu2vvqpkm6ai3e8s3rc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
