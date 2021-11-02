@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_signin.*
 import ru.asselinux.pomrom.R
+import ru.asselinux.pomrom.models.Users
 
 class SigninActivity : BaseActivity() {
 
@@ -23,6 +24,13 @@ class SigninActivity : BaseActivity() {
         btn_sign_in.setOnClickListener {
             singinRegisteredUser()
         }
+    }
+
+    fun signInSuccess(user: Users) {
+        hideProgressDialog()
+
+        startActivity(Intent(this@SigninActivity, MainActivity::class.java))
+        finish()
     }
 
     private fun setUpToolbar() {

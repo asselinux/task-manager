@@ -8,6 +8,7 @@ import android.os.Handler
 import android.view.WindowManager.LayoutParams.*
 import android.widget.TextView
 import ru.asselinux.pomrom.R
+import ru.asselinux.pomrom.firebase.FirestoreClass
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,13 @@ class SplashActivity : AppCompatActivity() {
         typeRound = findViewById<TextView>(R.id.pm_app_name).typeface
 
         Handler().postDelayed({
-            startActivity(Intent(this@SplashActivity, IntroActivity::class.java))
+            val currentUserID = FirestoreClass().getCurrentUserId()
+            if(currentUserID.isNotEmpty()) {
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this@SplashActivity, IntroActivity::class.java))
+            }
+
             finish()
         }, 2000)
     }

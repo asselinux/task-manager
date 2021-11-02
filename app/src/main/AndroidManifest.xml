@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PomRom">
         <activity
+            android:name=".MainActivity1"
+            android:exported="true"
+            android:label="@string/title_activity_main1" />
+        <activity
             android:name=".scenes.BaseActivity"
             android:exported="true"
             android:screenOrientation="portrait"
