@@ -39,7 +39,7 @@ class SigninActivity : BaseActivity() {
         val toolbar = supportActionBar
         if (toolbar != null) {
             toolbar.setDisplayHomeAsUpEnabled(true)
-            toolbar.setHomeAsUpIndicator(R.drawable.ic_black_arrow)
+            toolbar.setHomeAsUpIndicator(R.drawable.ic_white_arrow)
         }
 
         toolbar_sign_in.setNavigationOnClickListener { onBackPressed() }

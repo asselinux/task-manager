@@ -1,16 +1,18 @@
 package ru.asselinux.pomrom.scenes
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
+import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 import ru.asselinux.pomrom.R
+import ru.asselinux.pomrom.firebase.FirestoreClass
+import ru.asselinux.pomrom.models.Users
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +21,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setupToolbar()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        FirestoreClass().loadUserData(this)
     }
 
     private fun setupToolbar() {
@@ -46,13 +50,22 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
+    fun updateNavigationUserDetails(user: Users) {
+        Glide
+            .with(this@MainActivity)
+            .load(user.image)
+            .centerCrop()
+            .placeholder(R.drawable.ic_user_place_holder)
+            .into(nav_user_image)
+
+        tv_username.text = user.name
+
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_my_profile -> {
-                Toast.makeText(
-                    this, "My",
-                    Toast.LENGTH_SHORT
-                ).show()
+                startActivity(Intent(this, UserProfile::class.java))
             }
             R.id.nav_sign_out -> {
                 FirebaseAuth.getInstance().signOut()
